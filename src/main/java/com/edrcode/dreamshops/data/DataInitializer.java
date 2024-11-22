@@ -51,8 +51,6 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
         }
     }
 
-
-
     private void createDefaultAdminIfNotExists(){
         Role adminRole = roleRepository.findByName("ROLE_ADMIN").get();
         for (int i = 1; i<=2; i++){
@@ -75,9 +73,7 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
         roles.stream()
                 .filter(role -> roleRepository.findByName(role).isEmpty())
                 .map(Role:: new).forEach(roleRepository::save);
-
     }
-
 }
 
 
